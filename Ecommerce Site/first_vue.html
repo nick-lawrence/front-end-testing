@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>Vue.js Ecommerce Store</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="alert alert-dark" role="alert">
+          <h1 v-text="sitename"></h1>
+      </div>
+      <main>
+          <div class="row product">
+            <div class="col-sm-3">
+              <figure class="d-flex justify-content-end">
+                <img v-bind:src="product.image">
+              </figure>
+            </div>
+            <div class="col-sm-9">
+              <h1 v-text="product.title"></h1>
+              <p v-text="product.description"></p>
+              <p v-text="product.price" class="price"></p>
+            </div>
+          </div>
+        </main>
+    </header>
+  </div>
+  
+  <script type="text/javascript">
+    var APP_LOG_LIFECYCLE_EVENTS = false;
+
+    var webstore = new Vue({
+      el: '#app',
+      data: {
+        sitename: 'Vue.js Pet Depot',
+        product: {
+          id: 1001,
+          title: "Cat Food, 25lb bag",
+          description: "A 25 pound bag of <em>irresistible</em> orgranic goodness for your cat.",
+          price: 2000.00,
+          image: "https://via.placeholder.com/300"
+        }
+      },
+      beforeCreate: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeCreate");
+        }
+      },
+      created: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("created");
+        }
+      },
+      beforeMount: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeMount");
+        }
+      },
+      mounted: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("mounted");
+        }
+      },
+      beforeUpdate: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeUpdate");
+        }
+      },
+      updated: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("updated");
+        }
+      },
+      beforeDestroy: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeDestroy");
+        }
+      },
+      destoryed: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("destroyed");
+        }
+      },
+    });
+  </script>
+</body>
+</html>
